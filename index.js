@@ -12,14 +12,22 @@ app.use(passport.initialize());
 app.use(
   session({
     secret: process.env.Session_Secret,
-    resave: true,
-    saveUninitialized: true,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      expires: 600000,
+    },
   }),
 );
 
 // middleware
 const errorHandlerMiddleware = require('./Middleware/error-handler.js');
 app.use(errorHandlerMiddleware);
+
+// uses
+app.use(express.static('public'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // routes
 const Router = require('./Routes/Router.js');
@@ -39,10 +47,6 @@ const connectDB = async () => {
 // view engine setup
 app.set('views', './public/views');
 app.set('view engine', 'ejs');
-// uses
-app.use(express.static('public'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 try {
   connectDB();
