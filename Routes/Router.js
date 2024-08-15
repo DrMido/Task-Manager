@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/users.js');
+const login = require('../Controllers/mainController.js').login;
 
 router.get('/', (req, res) => {
   res.render('main.ejs');
@@ -13,6 +14,8 @@ router.get('/about', (req, res) => {
 router.get('/dashboard', (req, res) => {
   res.render('dashboard.ejs');
 });
+
+router.post('/login', login);
 
 router.post('/register', (req, res) => {
   const { username, password } = req.body;
