@@ -12,6 +12,9 @@ require('./config/expressConfig')(app);
 // database
 require('./config/mongodbConnect')();
 
+// route
+require('./config/route')(app);
+
 // start
 try {
   mongodbConnnect();
