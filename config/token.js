@@ -30,4 +30,4 @@ function verifyToken(req, res, next) {
     });
   });
 }
-module.exports = {assignToken, verifyToken};
+module.exports = { assignToken, verifyToken };
