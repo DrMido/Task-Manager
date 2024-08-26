@@ -5,7 +5,7 @@ const validateLogin = require('../Middleware/login');
 const encrypt = require('../Middleware/encryption');
 const router = express.Router();
 
-const { assignToken } = require('../config/token');
+const  assignToken  = require('../config/token');
 
 router.post('/register', validateregister, async (req, res) => {
   const result = validateregister(req.body);
@@ -20,6 +20,7 @@ router.post('/register', validateregister, async (req, res) => {
         .status(200)
         .json({ success: false, errors: ['Email already in use'] });
     }
+
   });
 
   const newUser = new userModel({
@@ -71,3 +72,5 @@ router.post('/login', validateLogin, async (req, res) => {
     });
   });
 });
+
+module.exports = router;

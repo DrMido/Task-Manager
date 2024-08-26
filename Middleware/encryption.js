@@ -1,4 +1,4 @@
-const bycrypt = require('bcryptjs');
+const bycrypt = require('bcrypt');
 
 const encrypt = async (password) => {
   const salt = await bycrypt.genSalt(10);

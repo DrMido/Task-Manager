@@ -3,7 +3,7 @@ const isEmail = validtor.isEmail;
 
 const validateLogin = (body) => {
   let success = true;
-  let errors = {};
+  let errors = [];
 
   if (!body || Object.keys(body) == 0) {
     success = false;

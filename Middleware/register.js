@@ -3,7 +3,7 @@ const isEmail = validator.isEmail;
 
 const validateRegister = (body) => {
   let success = true;
-  let errors = {};
+  let errors = [];
 
   if (!body || Object.keys(body) == 0) {
     success = false;
